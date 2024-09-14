@@ -1,0 +1,81 @@
+---
+title: "Assignment 3"
+output: html_document
+date: "2024-09-14"
+---
+
+```{r setup, include=FALSE}
+
+Major_list_data <- read.csv("C:/Users/dbrusche/Desktop/majors-list (1).csv")
+install.packages("tidyverse")
+library(tidyverse)
+
+# Subsetting data frame to include rows where Major column contains "DATA"
+Data_major_list <- str_subset(Major_list_data$Major, "DATA")
+
+statistics_major_list <- str_subset(Major_list_data$Major, "STATISTICS")
+
+print(Data_major_list)
+print(statistics_major_list)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+# Define the character vector
+Fruit_data <- c("bell pepper", "bilberry", "blackberry", "blood orange",
+                "blueberry", "cantaloupe", "chili pepper", "cloudberry",
+                "elderberry", "lime", "lychee", "mulberry",
+                "olive", "salal berry")
+
+
+
+
+
+```
+
+```{r cars 2}
+
+# Load the stringr package
+library(stringr)
+
+# Example vector of words
+words <- c("madam", "Heart", "church", "BeetJuice", "eggs",
+           "Love", "Gym", "Icecream", "poop",
+           "bed", "computer", "Homework")
+
+# 1. Words that start and end with the same character
+pattern1 <- "^(.)(.*)\\1$"
+matches1 <- str_subset(words, pattern1)
+cat("Words that start and end with the same character:\n")
+print(matches1)
+
+# 2. Words that contain a repeated pair of letters
+pattern2 <- "([A-Za-z][A-Za-z]).*\\1"
+matches2 <- str_subset(words, pattern2)
+cat("\nWords that contain a repeated pair of letters:\n")
+print(matches2)
+
+# 3. Words that contain one letter repeated in at least three places
+pattern3 <- "([A-Za-z]).*\\1.*\\1"
+matches3 <- str_subset(words, pattern3)
+cat("\nWords that contain one letter repeated in at least three places:\n")
+print(matches3)
+
+
+
+
+
+```
+
+
+
+
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
